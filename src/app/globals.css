@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-noite: #0b1f3f;
+  --color-serra: #00285a;
+  --color-serra-claro: #10407a;
+  --color-sol: #f0a83a;
+  --color-sol-claro: #ffd27a;
+  --color-fita: #c0281a;
+  --color-creme: #fff6e8;
+  --color-creme-escuro: #f3e6d0;
+  --color-cacau: #3b2418;
+
+  --font-display: var(--font-display), "Georgia", serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-noite);
+  color: var(--color-creme);
+  font-family: var(--font-body);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-sol);
+  color: var(--color-noite);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-sol);
+  outline-offset: 3px;
+}
+
+/* Mesh de sabores: fundo do hero */
+.mesh {
+  background:
+    radial-gradient(38% 42% at 18% 22%, rgba(240, 168, 58, 0.55) 0%, transparent 70%),
+    radial-gradient(34% 40% at 82% 18%, rgba(232, 96, 122, 0.45) 0%, transparent 70%),
+    radial-gradient(40% 46% at 78% 82%, rgba(16, 64, 122, 0.9) 0%, transparent 70%),
+    radial-gradient(30% 34% at 22% 84%, rgba(192, 40, 26, 0.35) 0%, transparent 70%),
+    linear-gradient(180deg, #0b1f3f 0%, #00285a 100%);
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.text-gradient-sol {
+  background: linear-gradient(92deg, #ffd27a 0%, #f0a83a 45%, #ff8c5a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Sombra deslocada (Van Leeuwen) */
+.shadow-offset {
+  box-shadow: 6px 6px 0 0 var(--color-noite);
+}
+.shadow-offset-sol {
+  box-shadow: 6px 6px 0 0 var(--color-sol);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--r, 0deg)); }
+}
+.floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes drip {
+  0% { transform: scaleY(0.6); }
+  50% { transform: scaleY(1); }
+  100% { transform: scaleY(0.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .floaty {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
