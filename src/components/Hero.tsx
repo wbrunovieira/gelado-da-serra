@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
+import { VideoLoop } from "./VideoLoop";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Star } from "lucide-react";
@@ -107,13 +107,11 @@ export function Hero() {
           <div className="hero-product relative mx-auto aspect-[4/5] w-[min(80vw,26rem)] md:w-full">
             <div className="absolute inset-0 -z-10 rounded-[46%_54%_52%_48%/48%_44%_56%_52%] bg-gradient-to-br from-sol/60 via-fita/30 to-serra-claro blur-2xl" />
             <div className="floaty relative h-full w-full overflow-hidden rounded-[46%_54%_52%_48%/48%_44%_56%_52%] ring-1 ring-creme/15">
-              <Image
-                src="/images/pote-morango.webp"
-                alt="Pote da Gelado da Serra com sorvete de morango"
-                fill
-                priority
-                sizes="(min-width: 768px) 40vw, 80vw"
-                className="object-cover"
+              <VideoLoop
+                src="/videos/calda.mp4"
+                poster="/videos/calda-poster.webp"
+                label="Calda quente de chocolate escorrendo sobre um pote de sorvete da Gelado da Serra"
+                className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
 

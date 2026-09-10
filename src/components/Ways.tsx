@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { VideoLoop } from "./VideoLoop";
 import { whatsappStore } from "@/data/site";
 
 export function Ways() {
@@ -16,14 +17,13 @@ export function Ways() {
 
         <div className="mt-14 grid gap-5 md:grid-cols-6 md:grid-rows-2">
           <article className="relative min-h-[22rem] overflow-hidden rounded-[2rem] bg-serra text-creme md:col-span-3 md:row-span-2">
-            <Image
-              src="/images/loja.webp"
-              alt="Balcão self-service da loja na Rua Coronel Veiga"
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover opacity-70"
+            <VideoLoop
+              src="/videos/vitrine.mp4"
+              poster="/videos/vitrine-poster.webp"
+              label="Vitrine do self-service com dezenas de sabores"
+              className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-noite via-noite/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-noite via-noite/30 to-transparent" />
             <div className="relative flex h-full flex-col justify-end p-7 md:p-9">
               <h3 className="font-display text-3xl font-bold tracking-tight md:text-4xl">Self-service na loja</h3>
               <p className="mt-3 max-w-sm text-creme/85">
@@ -41,7 +41,12 @@ export function Ways() {
                 </p>
               </div>
               <div className="relative min-h-[12rem]">
-                <Image src="/images/marmitinha.webp" alt="Marmitinha de sorvete na mão" fill sizes="25vw" className="object-cover" />
+                <VideoLoop
+                  src="/videos/marmitinha.mp4"
+                  poster="/videos/marmitinha-poster.webp"
+                  label="Marmitinha com quatro bolas de sorvete"
+                  className="absolute inset-0 h-full w-full object-cover object-[50%_80%]"
+                />
               </div>
             </div>
           </article>

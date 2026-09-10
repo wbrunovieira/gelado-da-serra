@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import Image from "next/image";
+import { VideoLoop } from "./VideoLoop";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { site } from "@/data/site";
@@ -59,12 +59,11 @@ export function Story() {
   return (
     <section ref={root} className="relative isolate overflow-hidden bg-noite pb-56 pt-28 text-creme md:pb-80 md:pt-40">
       <div className="story-img absolute inset-0 -z-10 scale-125">
-        <Image
-          src="/images/fabrica.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-50"
+        <VideoLoop
+          src="/videos/colher.mp4"
+          poster="/videos/colher-poster.webp"
+          label="Colher tirando sorvete de Romeu e Julieta da cuba"
+          className="h-full w-full object-cover opacity-45"
         />
       </div>
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-noite via-noite/60 to-noite" />
