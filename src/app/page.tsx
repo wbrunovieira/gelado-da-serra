@@ -17,9 +17,9 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Marquee />
+        <Marquee tone="fita" />
         <Flavors />
-        <Marquee reverse tone="fita" />
+        <Marquee reverse tone="sol" />
         <Benefits />
         <Ways />
         <Story />

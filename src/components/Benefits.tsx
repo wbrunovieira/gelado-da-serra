@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Smile, Leaf, Zap, Brain, HeartHandshake } from "lucide-react";
+import { MountainRange, Swoosh } from "./LogoParts";
 
 const items = [
   { icon: Smile, title: "Melhora o humor", text: "Uma colherada gelada no meio do dia resolve muita coisa." },
@@ -19,6 +20,18 @@ export function Benefits() {
   useGSAP(
     () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      gsap.from(".benefits-swoosh", {
+        scaleX: 0,
+        transformOrigin: "0% 50%",
+        duration: 1.2,
+        ease: "expo.out",
+        scrollTrigger: { trigger: ".benefits-title", start: "top 75%" },
+      });
+      gsap.to(".benefits-mountains", {
+        yPercent: -10,
+        ease: "none",
+        scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true },
+      });
       gsap.from(".benefit", {
         y: 40,
         opacity: 0,
@@ -32,13 +45,18 @@ export function Benefits() {
   );
 
   return (
-    <section ref={root} className="relative bg-serra py-24 text-creme md:py-32">
-      <div className="mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-8">
+    <section ref={root} className="relative overflow-hidden bg-serra py-24 text-creme md:py-32">
+      <MountainRange
+        className="benefits-mountains pointer-events-none absolute -bottom-24 left-1/2 w-[170%] -translate-x-1/2 opacity-60 md:w-[120%]"
+        style={{ ["--mtn-fill" as string]: "#0b1f3f", ["--snow-fill" as string]: "#1b4f93" }}
+      />
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-8">
         <div className="md:col-span-5">
           <div className="md:sticky md:top-32">
-            <h2 className="font-display text-[clamp(2.75rem,7vw,6.5rem)] font-extrabold leading-[0.9] tracking-[-0.03em]">
+            <h2 className="benefits-title font-display text-[clamp(2.75rem,7vw,6.5rem)] font-extrabold leading-[0.9] tracking-[-0.03em]">
               Sorvete faz bem.
             </h2>
+            <Swoosh className="benefits-swoosh mt-3 h-4 w-56 md:w-72" style={{ ["--swoosh-fill" as string]: "#0a81ff" }} />
             <p className="mt-6 max-w-sm text-lg leading-relaxed text-creme/75">
               Mais que sabor, momentos que cuidam. É assim que a gente pensa cada receita na fábrica.
             </p>

@@ -1,5 +1,6 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 import { site, whatsappStore } from "@/data/site";
+import { MountainRange } from "./LogoParts";
 
 export function Locations() {
   return (
@@ -18,12 +19,18 @@ export function Locations() {
           {site.stores.map((s, i) => (
             <article
               key={s.name}
-              className={`rounded-[2rem] p-7 md:p-9 ${
+              className={`relative overflow-hidden rounded-[2rem] p-7 md:p-9 ${
                 i === 0 ? "bg-serra text-creme" : "border-[3px] border-noite bg-creme shadow-offset"
               }`}
             >
-              <p className={`text-sm font-semibold ${i === 0 ? "text-sol" : "text-fita"}`}>{s.city}</p>
-              <h3 className="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">{s.name}</h3>
+              {i === 0 && (
+                <MountainRange
+                  className="pointer-events-none absolute -right-10 -top-2 w-64 opacity-70 md:w-80"
+                  style={{ ["--mtn-fill" as string]: "#10407a", ["--snow-fill" as string]: "#dbeafe" }}
+                />
+              )}
+              <p className={`relative text-sm font-semibold ${i === 0 ? "text-sol" : "text-fita"}`}>{s.city}</p>
+              <h3 className="relative mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">{s.name}</h3>
               <p className={`mt-3 ${i === 0 ? "text-creme/80" : "text-noite/75"}`}>{s.note}</p>
 
               <ul className="mt-7 space-y-3 text-base">

@@ -1,12 +1,14 @@
 import Image from "next/image";
 import { whatsappFactory } from "@/data/site";
-import { Sparkle } from "./Sparkle";
+import { RibbonBand, Sun } from "./LogoParts";
 
 export function Events() {
   return (
     <section id="eventos" className="relative overflow-hidden bg-sol py-24 text-noite md:py-32">
-      <Sparkle className="absolute left-[8%] top-12 h-8 w-8 text-creme" />
-      <Sparkle className="absolute right-[12%] bottom-16 h-6 w-6 text-fita" />
+      <Sun
+        className="pointer-events-none absolute -bottom-24 -right-16 h-64 w-64 md:-bottom-32 md:-right-20 md:h-[28rem] md:w-[28rem]"
+        style={{ ["--sun-fill" as string]: "#ffd35a" }}
+      />
 
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 md:grid-cols-12 md:px-8">
         <div className="md:col-span-7">
@@ -38,8 +40,11 @@ export function Events() {
               className="object-cover"
             />
           </div>
-          <span className="absolute -left-4 top-8 rotate-[-6deg] rounded-full bg-fita px-4 py-2 font-display text-sm font-bold text-creme shadow-offset">
-            sorvetes e picolés
+          <span className="absolute -left-6 top-6 grid w-44 rotate-[-7deg] place-items-center md:-left-10 md:w-56">
+            <RibbonBand className="col-start-1 row-start-1 w-full" />
+            <span className="col-start-1 row-start-1 -translate-y-[6%] font-display text-sm font-bold text-creme md:text-base">
+              sorvetes e picolés
+            </span>
           </span>
         </div>
       </div>

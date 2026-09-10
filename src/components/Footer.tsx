@@ -1,10 +1,15 @@
 import { Logo } from "./Logo";
 import { site, whatsappStore } from "@/data/site";
+import { MountainRange } from "./LogoParts";
 
 export function Footer() {
   return (
-    <footer className="border-t border-creme/10 bg-noite py-12 text-creme">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 md:flex-row md:items-start md:justify-between md:px-8">
+    <footer className="relative overflow-hidden bg-noite pb-12 pt-16 text-creme">
+      <MountainRange
+        className="pointer-events-none absolute left-1/2 top-0 w-[160%] -translate-x-1/2 -translate-y-[45%] opacity-40 md:w-[110%]"
+        style={{ ["--mtn-fill" as string]: "#10407a", ["--snow-fill" as string]: "#1b4f93" }}
+      />
+      <div className="relative mx-auto flex max-w-7xl flex-col gap-8 px-5 md:flex-row md:items-start md:justify-between md:px-8">
         <div>
           <Logo animate={false} tilt={false} className="h-16" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-creme/60">

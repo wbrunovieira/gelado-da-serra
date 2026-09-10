@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { flavors } from "@/data/flavors";
+import { Sun } from "./LogoParts";
 
 const chips = ["Zero açúcar", "Sem lactose", "Açaí", "Picolés"];
 
@@ -15,10 +16,14 @@ export function Flavors() {
   return (
     <section
       id="sabores"
-      className="relative py-24 transition-colors duration-700 ease-out md:py-32"
+      className="relative overflow-hidden py-24 transition-colors duration-700 ease-out md:py-32"
       style={{ backgroundColor: tint, color: ink }}
     >
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+      <Sun
+        className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 opacity-40 md:-right-10 md:-top-24 md:h-[26rem] md:w-[26rem]"
+        style={{ ["--sun-fill" as string]: "#f0a83a" }}
+      />
+      <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         <div className="grid gap-8 md:grid-cols-12 md:items-end">
           <h2 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] font-extrabold leading-[0.95] tracking-[-0.03em] md:col-span-8">
             Mais de 50 sabores no self-service. Você monta o pote do seu jeito.

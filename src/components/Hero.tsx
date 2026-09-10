@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Star } from "lucide-react";
 import { Sparkle } from "./Sparkle";
+import { MountainRange, Sun } from "./LogoParts";
 import { site, whatsappStore } from "@/data/site";
 
 const lines = ["Cremosidade", "que só a", "serra tem."];
@@ -24,7 +25,20 @@ export function Hero() {
         .from(".hero-product", { y: 80, opacity: 0, rotate: 8, duration: 1.4 }, 0.35)
         .from(".hero-sticker", { scale: 0, opacity: 0, duration: 0.7, ease: "back.out(2)", stagger: 0.08 }, 0.9)
         .from(".hero-sparkle", { scale: 0, opacity: 0, duration: 0.6, ease: "back.out(2)", stagger: 0.05 }, 1)
-        .from(".hero-foot", { opacity: 0, y: 12, duration: 0.8 }, 1.2);
+        .from(".hero-foot", { opacity: 0, y: 12, duration: 0.8 }, 1.2)
+        .from(".hero-sun", { y: 120, opacity: 0, duration: 1.6, ease: "power3.out" }, 0.2)
+        .from(".hero-mountains", { yPercent: 40, opacity: 0, duration: 1.4 }, 0.1);
+
+      gsap.to(".hero-sun", {
+        y: -60,
+        ease: "none",
+        scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
+      });
+      gsap.to(".hero-mountains", {
+        yPercent: 25,
+        ease: "none",
+        scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
+      });
 
       gsap.to(".hero-product", {
         yPercent: 18,
@@ -47,6 +61,15 @@ export function Hero() {
       ref={root}
       className="mesh grain relative isolate flex min-h-svh items-center overflow-hidden pt-24 pb-28 md:pt-28 md:pb-32"
     >
+      <Sun
+        className="hero-sun pointer-events-none absolute right-[4%] top-[9%] -z-10 h-28 w-28 md:right-[3%] md:top-[8%] md:h-48 md:w-48"
+        style={{ filter: "drop-shadow(0 0 40px rgba(254,221,14,0.45)) drop-shadow(0 0 120px rgba(240,168,58,0.35))" }}
+      />
+      <MountainRange
+        className="hero-mountains pointer-events-none absolute -bottom-1 left-1/2 -z-10 w-[150%] -translate-x-1/2 md:w-[110%]"
+        style={{ ["--mtn-fill" as string]: "#10407a", ["--snow-fill" as string]: "#dbeafe" }}
+      />
+
       <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 md:grid-cols-12 md:px-8">
         <div className="hero-copy relative z-10 md:col-span-7">
           <h1 className="font-display text-[clamp(3.25rem,8vw,7.25rem)] font-extrabold leading-[0.92] tracking-[-0.03em] text-creme">
@@ -109,7 +132,6 @@ export function Hero() {
               feito em Petrópolis
             </span>
 
-            <Sparkle className="hero-sparkle absolute -top-6 right-10 h-7 w-7 text-sol-claro" />
             <Sparkle className="hero-sparkle absolute bottom-16 -right-6 h-5 w-5 text-creme" />
             <Sparkle className="hero-sparkle absolute -left-8 bottom-1/3 h-4 w-4 text-sol" />
           </div>
