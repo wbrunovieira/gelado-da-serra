@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-noite pb-12 pt-16 text-creme">
       <MountainRange
-        className="pointer-events-none absolute left-1/2 top-0 w-[160%] -translate-x-1/2 -translate-y-[45%] opacity-40 md:w-[110%]"
+        className="pointer-events-none absolute left-[-30%] top-0 w-[160%] -translate-y-[45%] opacity-40 md:left-[-5%] md:w-[110%]"
         style={{ ["--mtn-fill" as string]: "#10407a", ["--snow-fill" as string]: "#1b4f93" }}
       />
       <div className="relative mx-auto flex max-w-7xl flex-col gap-8 px-5 md:flex-row md:items-start md:justify-between md:px-8">

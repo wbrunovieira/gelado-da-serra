@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { VideoLoop } from "./VideoLoop";
 import { whatsappStore } from "@/data/site";
 

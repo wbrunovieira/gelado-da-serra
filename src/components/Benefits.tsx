@@ -47,7 +47,7 @@ export function Benefits() {
   return (
     <section ref={root} className="relative overflow-hidden bg-serra py-24 text-creme md:py-32">
       <MountainRange
-        className="benefits-mountains pointer-events-none absolute -bottom-24 left-1/2 w-[170%] -translate-x-1/2 opacity-60 md:w-[120%]"
+        className="benefits-mountains pointer-events-none absolute -bottom-24 left-[-35%] w-[170%] opacity-60 md:left-[-10%] md:w-[120%]"
         style={{ ["--mtn-fill" as string]: "#0b1f3f", ["--snow-fill" as string]: "#1b4f93" }}
       />
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-12 md:px-8">

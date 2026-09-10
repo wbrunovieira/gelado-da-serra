@@ -73,11 +73,11 @@ export function Story() {
         style={{ filter: "drop-shadow(0 0 40px rgba(254,221,14,0.5))" }}
       />
       <MountainRange
-        className="story-mtn-back pointer-events-none absolute -bottom-4 left-[55%] -z-10 w-[180%] -translate-x-1/2 md:w-[130%]"
+        className="story-mtn-back pointer-events-none absolute -bottom-4 left-[-35%] -z-10 w-[180%] md:left-[-10%] md:w-[130%]"
         style={{ ["--mtn-fill" as string]: "#10407a", ["--snow-fill" as string]: "#bfdbfe" }}
       />
       <MountainRange
-        className="story-mtn-front pointer-events-none absolute -bottom-6 left-[40%] -z-10 w-[190%] -translate-x-1/2 md:w-[140%]"
+        className="story-mtn-front pointer-events-none absolute -bottom-6 left-[-55%] -z-10 w-[190%] md:left-[-30%] md:w-[140%]"
         style={{ ["--mtn-fill" as string]: "#0380fe", ["--snow-fill" as string]: "#f4fcfd" }}
       />
 

@@ -22,6 +22,11 @@ html {
   scroll-behavior: auto;
 }
 
+/* Sem JS, a âncora ainda para abaixo do header fixo. */
+section[id] {
+  scroll-margin-top: 5.25rem;
+}
+
 html.lenis,
 html.lenis body {
   height: auto;
