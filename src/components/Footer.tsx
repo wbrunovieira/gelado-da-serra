@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-creme/10 bg-noite py-12 text-creme">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 md:flex-row md:items-start md:justify-between md:px-8">
         <div>
-          <Logo />
+          <Logo animate={false} className="h-16" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-creme/60">
             Sorvete artesanal premium, feito em Petrópolis desde a primeira colherada.
           </p>
