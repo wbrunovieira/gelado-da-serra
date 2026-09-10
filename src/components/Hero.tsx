@@ -83,7 +83,7 @@ export function Hero() {
         <div className="relative md:col-span-5">
           <div className="hero-product relative mx-auto aspect-[4/5] w-[min(80vw,26rem)] md:w-full">
             <div className="absolute inset-0 -z-10 rounded-[46%_54%_52%_48%/48%_44%_56%_52%] bg-gradient-to-br from-sol/60 via-fita/30 to-serra-claro blur-2xl" />
-            <div className="floaty h-full w-full overflow-hidden rounded-[46%_54%_52%_48%/48%_44%_56%_52%] ring-1 ring-creme/15">
+            <div className="floaty relative h-full w-full overflow-hidden rounded-[46%_54%_52%_48%/48%_44%_56%_52%] ring-1 ring-creme/15">
               <Image
                 src="/images/pote-morango.webp"
                 alt="Pote da Gelado da Serra com sorvete de morango"
